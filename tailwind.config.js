@@ -5,10 +5,26 @@ const config = {
     extend: {
       colors: {
         primary: {
-          "default": "#61442C",
+          DEFAULT: "#61442C",
           "100": "#875C34",
-        }
-      }, // Extend Tailwind's default colors
+        },
+        secondary: {
+          DEFAULT: "#FFFFFF",
+          "100": "#FFFCF4",
+        },
+        accent: {
+          DEFAULT: "#BDF1FD",
+        },
+      },
+      fontFamily: {
+        body: ['poppins'],
+      },
+      fontSize: {
+        header: '20px',
+      },
+      gridTemplateColumns: {
+        'header-desktop': '1fr 3fr 1fr',
+      },
     },
   },
   plugins: [],

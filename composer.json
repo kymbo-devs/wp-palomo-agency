@@ -40,7 +40,11 @@
   },
   "require": {
     "php": ">=8.1",
+    "blade-ui-kit/blade-icons": "^1.6",
+    "davidhsianturi/blade-bootstrap-icons": "^1.5",
     "log1x/acf-composer": "^3.0",
+    "log1x/sage-html-forms": "^1.0",
+    "owenvoke/blade-fontawesome": "^2.6",
     "roots/acorn": "^4.3"
   },
   "require-dev": {

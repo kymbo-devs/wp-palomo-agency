@@ -1,0 +1,1 @@
+<div class="announcement">{!! $announcement_text !!}<span id="announcement-close"><x-bi-x /></span></div>

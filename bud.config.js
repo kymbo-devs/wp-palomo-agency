@@ -34,7 +34,7 @@ export default async (app) => {
    */
   app
     .setUrl('http://localhost:3000')
-    .setProxyUrl('https://skyblue-porcupine-132026.hostingersite.com')
+    .setProxyUrl('http://palomo-agency.local')
     .watch(['resources', 'app']);
 
   /**

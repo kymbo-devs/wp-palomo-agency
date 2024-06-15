@@ -1257,8 +1257,23 @@
         },
         {
           "color": "#61442c",
-          "name": "Primary Default",
+          "name": "Primary DEFAULT",
           "slug": "primary-default"
+        },
+        {
+          "color": "#fffcf4",
+          "name": "Secondary 100",
+          "slug": "secondary-100"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Secondary DEFAULT",
+          "slug": "secondary-default"
+        },
+        {
+          "color": "#bdf1fd",
+          "name": "Accent DEFAULT",
+          "slug": "accent-default"
         }
       ]
     },
@@ -1297,6 +1312,11 @@
           "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace",
           "name": "Ui-monospace",
           "slug": "mono"
+        },
+        {
+          "fontFamily": "poppins",
+          "name": "Poppins",
+          "slug": "body"
         }
       ],
       "fontSizes": [
@@ -1364,6 +1384,11 @@
           "name": "9xl",
           "size": "8rem",
           "slug": "9xl"
+        },
+        {
+          "name": "header",
+          "size": "20px",
+          "slug": "header"
         }
       ]
     }

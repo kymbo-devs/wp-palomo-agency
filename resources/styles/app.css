@@ -3,12 +3,53 @@
 @tailwind utilities;
 
 @layer base {
-
+    body {
+        @apply font-body antialiased scroll-smooth;
+    }
 }
 
 @layer components {
-    .banner {
+    .announcement{
+        @apply relative bg-accent text-primary text-center py-2 font-semibold;
+    }
+    #announcement-close{
+        @apply absolute top-2 right-11 cursor-pointer h-[calc(100%-1rem)];
+    }
+
+    #announcement-close svg{
+        @apply h-full w-full;
+    }
+    .header {
         background: linear-gradient(90deg, #61442C 0%, #875C34 100%);
-        @apply flex flex-row justify-between items-center;
+        @apply grid grid-cols-header-desktop justify-items-stretch items-center py-5 px-9;
+    }
+
+    .header .logo{
+        @apply justify-self-start;
+    }
+
+    .header .nav-primary{
+        @apply justify-self-center font-normal text-header;
+    }
+
+    .header .cta{
+        @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full;
+    }
+
+    .nav-primary ul {
+        @apply flex flex-row justify-between items-center uppercase text-header text-secondary gap-6 font-normal;
+    }
+
+    footer {
+        background: linear-gradient(270deg, #64472F 0%, #937659 100%);
+        @apply text-secondary text-sm py-5 px-9;
+    }
+
+    .social-footer .social-icon {
+        @apply block w-7 h-7 text-secondary;
+    }
+
+    .social-icon svg{
+        @apply w-full h-full;
     }
 }
