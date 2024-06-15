@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+}
+
+@layer components {
+    .banner {
+        background: linear-gradient(90deg, #61442C 0%, #875C34 100%);
+        @apply flex flex-row justify-between items-center;
+    }
+}
