@@ -1256,6 +1256,16 @@
           "slug": "primary-100"
         },
         {
+          "color": "#f3e5cf",
+          "name": "Primary 200",
+          "slug": "primary-200"
+        },
+        {
+          "color": "#ccb591",
+          "name": "Primary 300",
+          "slug": "primary-300"
+        },
+        {
           "color": "#61442c",
           "name": "Primary DEFAULT",
           "slug": "primary-default"

@@ -132,6 +132,7 @@ class PalomoStyles extends Field
             ->addText('CTA_link', ['label' => 'CTA Link'])
             ->addTab('Footer')
             ->addImage('footer_logo', ['label' => 'Logo', 'return_format' => 'id'])
+            ->addImage('footer_logo_responsive', ['label' => 'Logo', 'return_format' => 'id'])
             ->addTextarea('footer_text', [
                 'label' => 'Text',
                 'rows' => 4,

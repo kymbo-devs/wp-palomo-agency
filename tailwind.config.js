@@ -7,6 +7,8 @@ const config = {
         primary: {
           DEFAULT: "#61442C",
           "100": "#875C34",
+          "200": "#F3E5CF",
+          "300": "#CCB591",
         },
         secondary: {
           DEFAULT: "#FFFFFF",
@@ -24,6 +26,7 @@ const config = {
       },
       gridTemplateColumns: {
         'header-desktop': '1fr 3fr 1fr',
+        'header-mobile': '1fr 1fr',
       },
     },
   },
