@@ -1324,7 +1324,7 @@
           "slug": "mono"
         },
         {
-          "fontFamily": "poppins",
+          "fontFamily": "Poppins,Sans-serif",
           "name": "Poppins",
           "slug": "body"
         }

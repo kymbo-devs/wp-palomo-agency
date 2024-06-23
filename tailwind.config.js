@@ -19,7 +19,7 @@ const config = {
         },
       },
       fontFamily: {
-        body: ['poppins'],
+        body: ['Poppins', 'Sans-serif'],
       },
       fontSize: {
         header: '20px',
@@ -31,6 +31,10 @@ const config = {
     },
   },
   plugins: [],
+  safelist: [
+    'paragraph-text',
+    'heading-text'
+  ]
 };
 
 export default config;

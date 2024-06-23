@@ -61,7 +61,7 @@ class PalomoStyles extends Field
      *
      * @var string
      */
-    public $icon = "http://palomo-agency.local/wp-content/uploads/2024/06/icon-3.png";
+    public $icon = 'http://palomo-agency.local/wp-content/uploads/2024/06/icon-2.png';
 
     /**
      * Redirect to the first child page if one exists.

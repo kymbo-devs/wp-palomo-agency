@@ -22,7 +22,7 @@ class MenuDrawer extends HTMLElement {
         self.overlay.addEventListener('click', this.close);
         self.close.addEventListener('click', this.close);
     }
-    }
+}
 
 export const components = () => {
     customElements.define('menu-drawer', MenuDrawer);

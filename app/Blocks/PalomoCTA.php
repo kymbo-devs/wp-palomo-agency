@@ -6,7 +6,7 @@ use Log1x\AcfComposer\AcfComposer;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeroBanner extends Block
+class PalomoCTA extends Block
 {
     /**
      * The block attributes.
@@ -14,8 +14,8 @@ class HeroBanner extends Block
     public function attributes(): array
     {
         return [
-            'name' => __('Hero Banner', 'sage'),
-            'description' => __('A simple Hero Banner block.', 'sage'),
+            'name' => __('Palomo C T A', 'sage'),
+            'description' => __('A simple Palomo C T A block.', 'sage'),
             'category' => 'formatting',
             'icon' => 'editor-ul',
             'keywords' => [],
@@ -35,17 +35,10 @@ class HeroBanner extends Block
                 'mode' => false,
                 'multiple' => true,
                 'jsx' => true,
-                'color' => [
-                    'background' => true,
-                    'text' => true,
-                    'gradient' => true,
-                ],
+                'color' => false,
             ],
-            'styles' => ['light', 'dark'],
-            'template' => [
-                'core/heading' => ['placeholder' => 'Hello World'],
-                'core/paragraph' => ['placeholder' => 'Welcome to the Hero Banner block.'],
-            ],
+            'styles' => false,
+            'template' => false,
         ];
     }
 
@@ -55,11 +48,9 @@ class HeroBanner extends Block
     public function example(): array
     {
         return [
-            'items' => [
-                ['item' => 'Item one'],
-                ['item' => 'Item two'],
-                ['item' => 'Item three'],
-            ],
+            'text' => 'Get Started',
+            'url' => '#',
+
         ];
     }
 
@@ -69,7 +60,8 @@ class HeroBanner extends Block
     public function with(): array
     {
         return [
-            'items' => $this->items(),
+            'text' => $this->text(),
+            'url' => $this->url(),
         ];
     }
 
@@ -78,24 +70,32 @@ class HeroBanner extends Block
      */
     public function fields(): array
     {
-        $heroBanner = Builder::make('hero_banner');
+        $palomoCTA = Builder::make('palomo_c_t_a');
 
-        $heroBanner
-            ->addRepeater('items')
-                ->addText('item')
-            ->endRepeater();
-
-        return $heroBanner->build();
+        $palomoCTA
+            ->addText('text')
+            ->addText('url');
+        return $palomoCTA->build();
     }
 
     /**
-     * Return the items field.
+     * Return the text field.
      *
      * @return array
      */
-    public function items()
+    public function text()
     {
-        return get_field('items') ?: $this->example['items'];
+        return get_field('text') ?: $this->example['text'];
+    }
+
+    /**
+     * Return the url field.
+     *
+     * @return array
+     */
+    public function url()
+    {
+        return get_field('url') ?: $this->example['url'];
     }
 
     /**

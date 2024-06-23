@@ -1,144 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
     body {
         @apply font-body antialiased scroll-smooth text-base bg-secondary-100;
     }
+
+    body, div:hover{
+        cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150-1.png'), auto;
+    }
+
+    a:hover, button:hover{
+        cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150.png'), auto !important;
+    }
+
+    .desktop {
+        @apply grid max-md:!hidden;
+    }
+
+    .mobile {
+        @apply grid md:!hidden;
+    }
+
 }
 
-@layer components {
-    .announcement{
+@layer components {  
+
+    /* HEADER STYLES */
+
+    .announcement {
         @apply relative bg-accent text-primary text-center py-2 font-semibold;
     }
-    #announcement-close{
+
+    #announcement-close {
         @apply absolute top-2 right-11 cursor-pointer h-[calc(100%-1rem)];
     }
-
-    #announcement-close svg{
+    
+    #announcement-close svg {
         @apply h-full w-full;
     }
+
     .header {
         background: linear-gradient(90deg, #61442C 0%, #875C34 100%);
         @apply grid grid-cols-header-desktop max-md:grid-cols-header-mobile justify-items-stretch items-center py-2 px-5 md:py-5 md:px-9 max-md:py-4;
     }
-
-    .header .logo{
+    
+    .header .logo {
         @apply justify-self-start;
     }
-
-    .header .logo img{
+    
+    .header .logo img {
         @apply h-full max-md:h-10 w-auto;
     }
-
-    .header .nav-primary{
+    
+    .header .nav-primary {
         @apply justify-self-center font-normal text-header flex max-md:hidden;
     }
-
-    .header .cta{
+    
+    .header .cta {
         @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full max-md:fixed max-md:bottom-5 max-md:w-[calc(100%-4rem)] max-md:left-8 max-md:text-center;
     }
-
+    
     .nav-primary ul {
         @apply flex flex-row justify-between items-center uppercase text-header text-secondary gap-6 font-normal;
     }
-
+    
     .menu-toggle {
         @apply hidden max-md:block text-secondary max-md:size-10 justify-self-end;
     }
-
+    
     menu-drawer .drawer-menu.active {
         @apply transform left-0;
     }
-
+    
     menu-drawer .drawer-menu {
         @apply bg-primary-300 fixed top-0 -left-full w-4/5 h-full z-50 hidden max-md:flex flex-col items-start justify-start px-7 py-5 gap-4 transition-all ease-in-out duration-500 delay-100;
     }
-
-    menu-drawer .drawer-menu__overlay.active{
+    
+    menu-drawer .drawer-menu__overlay.active {
         @apply opacity-30 pointer-events-auto;
     }
-
-    menu-drawer .drawer-menu__overlay{
+    
+    menu-drawer .drawer-menu__overlay {
         @apply bg-black opacity-0 fixed top-0 left-0 w-full h-full z-40 hidden max-md:block transition-all ease-in-out duration-300 pointer-events-none;
     }
-
+    
     menu-drawer .nav-primary.drawer-menu__nav ul {
         @apply flex-col gap-4 text-lg items-start;
     }
     
-    menu-drawer .nav-primary.drawer-menu__nav ul li{
+    menu-drawer .nav-primary.drawer-menu__nav ul li {
         @apply capitalize text-primary;
     }
-
+    
     menu-drawer hr {
         @apply border-t-[1px] border-primary w-[calc(100%+3.5rem)] ml-[-1.75rem] opacity-45;
     }
-
-    menu-drawer .drawer-menu__close svg{
+    
+    menu-drawer .drawer-menu__close svg {
         @apply text-primary cursor-pointer;
     }
+
+    /* FOOTER STYLES */
 
     footer.footer-wrapper {
         background: linear-gradient(270deg, #64472F 0%, #937659 100%);
         @apply text-secondary text-sm py-6 px-5 max-md:pb-16 md:py-14 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10;
     }
-
-    .footer-information{
+    
+    .footer-information {
         @apply flex flex-col gap-7 justify-between items-center text-center md:items-start md:text-left;
     }
-
+    
     .social-footer {
         @apply flex flex-row justify-start gap-5;
     
     }
-
+    
     .footer-social-cta {
         @apply text-secondary font-extrabold text-3xl;
     }
-
+    
     .social-footer .social-icon {
         @apply block w-7 h-7 text-secondary;
     }
-
-    .social-icon svg{
+    
+    .social-icon svg {
         @apply w-full h-full;
     }
-
-    .footer-menu-title{
+    
+    .footer-menu-title {
         @apply font-extrabold text-primary-200 uppercase text-2xl mb-10 mt-14;
     }
-
+    
     .footer-nav {
         @apply hidden md:block;
     }
-
-    .nav-footer ul{
+    
+    .nav-footer ul {
         @apply flex flex-col gap-5 text-lg;
     }
-
-    .footer-form{
+    
+    .footer-form {
         @apply flex flex-col max-md:gap-6 gap-11 md:mt-14 max-md:items-center max-md:text-center;
     }
-
-    .footer-form-title{
+    
+    .footer-form-title {
         @apply font-extrabold text-primary-200 uppercase text-2xl;
     }
-
-    .footer-form-subtitle{
+    
+    .footer-form-subtitle {
         @apply text-secondary text-xl;
     }
-
-    .newsletter-form .hf-fields-wrap{
+    
+    .newsletter-form .hf-fields-wrap {
         @apply flex flex-row gap-0 ;
     }
-
-    .newsletter-form .newsletter-input{
+    
+    .newsletter-form .newsletter-input {
         @apply w-full rounded-l-xl border-2 border-secondary text-secondary text-lg p-3;
     }
-
-    .newsletter-form .newsletter-submit{
+    
+    .newsletter-form .newsletter-submit {
         @apply w-fit bg-primary-300 text-secondary text-lg rounded-r-xl p-3;
+    }
+
+    /* HERO BANNER STYLES */
+
+    .hero {
+        @apply grid grid-cols-2 gap-4 max-md:grid-cols-1;
+    }
+    
+    .hero__content {
+        @apply flex flex-row justify-start items-center text-left px-9 max-md:order-2 max-md:pb-11 max-md:pt-0 ;
+    }
+
+    .hero__content h1,
+    .hero__content h2,
+    .hero__content h3,
+    .hero__content h4,
+    .hero__content h5,
+    .hero__content h6{
+        @apply font-extrabold text-5xl leading-[114%] text-primary max-md:text-3xl max-md:text-center uppercase max-md:w-[90%] max-md:m-auto;
+    }
+
+    .hero__content p {
+        @apply font-normal text-lg leading-[150%] text-black mt-5 w-2/3 max-md:text-center max-md:mx-auto max-md:w-4/5 max-md:mt-4;
+    }
+
+    .hero__content .btn-primary {
+        @apply mt-24 max-md:mx-auto max-md:mt-4;
+    }
+    
+    .hero__videos-carrusel {
+        @apply grid grid-cols-3 max-md:grid-cols-1 max-h-screen overflow-hidden max-md:order-1;
+    }
+    
+    .hero .video-item {
+        @apply mx-auto shadow-[5px_5px] shadow-primary rounded-2xl my-10 w-[calc(100%-60px)] h-auto;
+    }
+    
+    .hero #second-banner, .hero #second-banner .video-item {
+        transform: rotate(180deg);
+    }
+
+    /* BUTTONS STYLES */
+
+    a.btn {
+        @apply text-center text-2xl font-semibold py-3 px-6 rounded-full flex flex-row items-center gap-1 w-fit;    
+    }
+
+    .btn-primary {
+        @apply bg-accent text-primary shadow-primary shadow-[3px_5px];
+    }
+
+    .btn-primary svg{
+        @apply size-7;
     }
 }
