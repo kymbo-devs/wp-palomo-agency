@@ -50,7 +50,7 @@ class PalomoCTA extends Block
         return [
             'text' => 'Get Started',
             'url' => '#',
-
+            'partner' => '67',
         ];
     }
 
@@ -62,6 +62,7 @@ class PalomoCTA extends Block
         return [
             'text' => $this->text(),
             'url' => $this->url(),
+            'partner' => $this->partner(),
         ];
     }
 
@@ -73,15 +74,16 @@ class PalomoCTA extends Block
         $palomoCTA = Builder::make('palomo_c_t_a');
 
         $palomoCTA
-            ->addText('text')
-            ->addText('url');
+            ->addImage('partner', ['label' => 'Next to button', 'return_format' => 'id'])
+            ->addText('text', ['label' => 'Button text'])
+            ->addText('url', ['label' => 'Button URL']);
         return $palomoCTA->build();
     }
 
     /**
      * Return the text field.
      *
-     * @return array
+     * @return string
      */
     public function text()
     {
@@ -91,11 +93,22 @@ class PalomoCTA extends Block
     /**
      * Return the url field.
      *
-     * @return array
+     * @return string
      */
     public function url()
     {
         return get_field('url') ?: $this->example['url'];
+    }
+
+    /**
+     * Return the partner field.
+     *
+     * @return string
+     */
+
+    public function partner()
+    {
+        return get_field('partner') ?: $this->example['partner'];
     }
 
     /**

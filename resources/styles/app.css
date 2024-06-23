@@ -193,7 +193,7 @@
     }
 
     .hero__content .btn-primary {
-        @apply mt-24 max-md:mx-auto max-md:mt-4;
+        @apply mt-24 max-md:mx-auto max-md:mt-4 mb-[5px];
     }
     
     .hero__videos-carrusel {
@@ -206,6 +206,14 @@
     
     .hero #second-banner, .hero #second-banner .video-item {
         transform: rotate(180deg);
+    }
+
+    .hero .hero-buttons {
+        @apply flex flex-row justify-start items-end gap-4 max-md:flex-col max-md:items-center max-md:justify-center;
+    }
+
+    .hero-buttons .size-partner_image {
+        @apply h-auto w-56 object-contain;
     }
 
     /* BUTTONS STYLES */
