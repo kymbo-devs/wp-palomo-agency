@@ -14,7 +14,7 @@
         cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150-1.png'), auto;
     }
 
-    a:hover, button:hover{
+    a, button, a:hover, button:hover, input{
         cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150.png'), auto !important;
     }
 
@@ -24,6 +24,10 @@
 
     .mobile {
         @apply grid md:!hidden;
+    }
+
+    .page-width {
+        @apply px-24 max-md:px-5;
     }
 
 }
@@ -214,6 +218,31 @@
 
     .hero-buttons .size-partner_image {
         @apply h-auto w-56 object-contain;
+    }
+
+    /* CLIENT LOGO STYLES */
+    .clients-logos {
+        @apply flex flex-row gap-5 justify-between items-center max-md:flex-col bg-primary-300 py-5 page-width;
+    }
+
+    .clients-logos .slick-track {
+        @apply h-fit;
+    }
+
+    .clients-logos .slick-slide {
+        @apply w-fit mx-2;
+    }
+
+    .clients-logos .clients-slider img {
+        @apply h-16 w-auto;
+    }
+
+    .clients-logos__header {
+        @apply w-1/5 max-md:w-full text-left max-md:text-center max-md:w-full text-white font-extrabold text-3xl;
+    }
+
+    .clients-logos__slider {
+        @apply w-4/5 max-md:w-[calc(100%+4rem)] max-md:ml-[-2rem];
     }
 
     /* BUTTONS STYLES */
