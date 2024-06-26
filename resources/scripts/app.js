@@ -14,6 +14,7 @@ domReady(async () => {
   gsap.registerPlugin(ScrollTrigger);
   // Load Custom web components
   components();
+  // Load component animations
   animations();
 });
 

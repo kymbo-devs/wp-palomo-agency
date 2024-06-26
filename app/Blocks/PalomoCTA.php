@@ -50,7 +50,7 @@ class PalomoCTA extends Block
         return [
             'text' => 'Get Started',
             'url' => '#',
-            'partner' => '67',
+            'partner' => '1',
         ];
     }
 

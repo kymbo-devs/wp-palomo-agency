@@ -21,7 +21,7 @@ export const animations = () => {
         ease: 'power2.out'
         }
     ).delay(1.5);
-    gsap.fromTo('.bounce-animated', 
+    gsap.fromTo('.hero .bounce-animated', 
         {
             opacity: 0,
             scale: 0.5,
@@ -35,7 +35,7 @@ export const animations = () => {
             ease: 'bounce.out'
         }
     ).delay(2);
-    gsap.fromTo('.fade-in-animated', 
+    gsap.fromTo('.hero .partner_image', 
         {
             opacity: 0,
         }, 
