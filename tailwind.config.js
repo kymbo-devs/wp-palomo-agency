@@ -22,7 +22,7 @@ const config = {
         body: ['Poppins', 'Sans-serif'],
       },
       fontSize: {
-        header: '20px',
+        header: '18px',
       },
       gridTemplateColumns: {
         'header-desktop': '1fr 3fr 1fr',

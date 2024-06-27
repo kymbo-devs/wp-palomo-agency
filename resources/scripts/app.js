@@ -10,8 +10,9 @@ import {register} from 'swiper/element/bundle';
 domReady(async () => {
   // register Swiper custom elements
   register();
-  // register GSAP and ScrollTrigger
+  // register GSAP, ScrollTrigger and TextPlugin
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(TextPlugin)
   // Load Custom web components
   components();
   // Load component animations

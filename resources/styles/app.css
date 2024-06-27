@@ -6,6 +6,9 @@
 
 @layer base {
 
+    body, html{
+        @apply w-screen overflow-x-hidden;
+    }
     body {
         @apply font-body antialiased scroll-smooth text-base bg-secondary-100;
     }
@@ -37,7 +40,7 @@
     /* HEADER STYLES */
 
     .announcement {
-        @apply relative bg-accent text-primary text-center py-2 font-semibold;
+        @apply relative bg-accent text-primary text-center py-2 font-semibold transition-all ease-in-out duration-500 overflow-hidden;
     }
 
     #announcement-close {
@@ -66,7 +69,7 @@
     }
     
     .header .cta {
-        @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full max-md:fixed max-md:bottom-5 max-md:w-[calc(100%-4rem)] max-md:left-8 max-md:text-center;
+        @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full max-md:fixed max-md:bottom-5 max-md:w-[calc(100%-4rem)] max-md:left-8 max-md:text-center z-40;
     }
     
     .nav-primary ul {
@@ -282,6 +285,36 @@
 
     .text-icons .size-text-icons__icon:last-child {
         @apply transform right-0 top-16 max-md:top-auto max-md:bottom-11;
+    }
+
+    /* WISTIA VIDEO STYLES */
+
+    .wistia-video  {
+        @apply border-t-primary border-t-[3px] mt-16 mb-32  max-md:border-none max-md:mt-4;
+    }
+
+    .wistia-video__container {
+        @apply relative w-3/4 max-md:w-full mx-auto rounded-3xl overflow-hidden shadow-[8px_8px] shadow-primary;
+    }
+
+    .wistia-title {
+        @apply w-fit mx-auto px-60 max-md:px-0 bg-secondary-100 -mt-16 mb-16 max-md:mb-4 max-md:mt-0;
+    }
+
+    .wistia-video__title {
+        @apply text-4xl max-md:text-lg font-light text-primary text-center w-fit mx-auto;
+    }
+    
+    .wistia-video__description {
+        @apply text-4xl max-md:text-lg font-light text-primary text-center w-fit mx-auto mt-20 max-md:mt-4 mb-5;
+    }
+
+    .wistia-video .btn-primary {
+        @apply mx-auto;
+    }
+
+    .wistia-video__subtitle {
+        @apply text-4xl max-md:text-lg font-extrabold text-secondary text-center bg-primary p-5 max-md:p-2 max-md:mt-2 mt-4 w-fit mx-auto;
     }
 
     /* BUTTONS STYLES */
