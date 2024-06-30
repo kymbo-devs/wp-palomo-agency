@@ -38,7 +38,7 @@ export const animations = () => {
         }
     ).delay(2);
 
-    gsap.fromTo('.hero .partner_image', 
+    gsap.fromTo('.partner_image', 
         {
             opacity: 0,
         }, 

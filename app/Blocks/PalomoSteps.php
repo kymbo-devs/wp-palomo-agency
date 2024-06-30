@@ -6,7 +6,7 @@ use Log1x\AcfComposer\AcfComposer;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class PalomoCTA extends Block
+class PalomoSteps extends Block
 {
     /**
      * The block attributes.
@@ -14,8 +14,8 @@ class PalomoCTA extends Block
     public function attributes(): array
     {
         return [
-            'name' => __('Palomo C T A', 'sage'),
-            'description' => __('A simple Palomo C T A block.', 'sage'),
+            'name' => __('Palomo Steps', 'sage'),
+            'description' => __('A simple Palomo Steps block.', 'sage'),
             'category' => 'formatting',
             'icon' => 'editor-ul',
             'keywords' => [],
@@ -33,7 +33,7 @@ class PalomoCTA extends Block
                 'full_height' => false,
                 'anchor' => false,
                 'mode' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'jsx' => true,
                 'color' => false,
             ],
@@ -48,9 +48,11 @@ class PalomoCTA extends Block
     public function example(): array
     {
         return [
-            'text' => 'Get Started',
-            'url' => '#',
-            'partner' => '1',
+            'steps' => [
+                ['step' => 'Item one'],
+                ['step' => 'Item two'],
+                ['step' => 'Item three'],
+            ],
         ];
     }
 
@@ -60,10 +62,9 @@ class PalomoCTA extends Block
     public function with(): array
     {
         return [
-            'text' => $this->text(),
-            'url' => $this->url(),
-            'partner' => $this->partner(),
-            'icon' => get_field('icon'),
+            'steps' => $this->steps(),
+            'titleText' => get_field('titleText') ?: 'Title',
+            'subtitleText' => get_field('subtitleText') ?: 'Subtitle',
         ];
     }
 
@@ -72,45 +73,32 @@ class PalomoCTA extends Block
      */
     public function fields(): array
     {
-        $palomoCTA = Builder::make('palomo_c_t_a');
+        $palomoSteps = Builder::make('palomo_steps');
 
-        $palomoCTA
-            ->addCheckbox('icon', ['label' => 'icon', 'toogle' => 1, 'choices' => ['show' => 'show icon']])
-            ->addImage('partner', ['label' => 'Next to button', 'return_format' => 'id'])
-            ->addText('text', ['label' => 'Button text'])
-            ->addText('url', ['label' => 'Button URL']);
-        return $palomoCTA->build();
+        $palomoSteps
+            ->addText('titleText')
+            ->addText('subtitleText')
+            ->addRepeater('steps')
+                ->addImage('stepImage', [
+                    'return_format' => 'id',
+                ])
+                ->addImage('stepIcon', [
+                    'return_format' => 'url',
+                ])
+                ->addWysiwyg('step')
+            ->endRepeater();
+
+        return $palomoSteps->build();
     }
 
     /**
-     * Return the text field.
+     * Return the items field.
      *
-     * @return string
+     * @return array
      */
-    public function text()
+    public function steps()
     {
-        return get_field('text') ?: $this->example['text'];
-    }
-
-    /**
-     * Return the url field.
-     *
-     * @return string
-     */
-    public function url()
-    {
-        return get_field('url') ?: $this->example['url'];
-    }
-
-    /**
-     * Return the partner field.
-     *
-     * @return string
-     */
-
-    public function partner()
-    {
-        return get_field('partner') ?: $this->example['partner'];
+        return get_field('steps') ?: $this->example['steps'];
     }
 
     /**

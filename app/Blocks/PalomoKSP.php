@@ -6,7 +6,7 @@ use Log1x\AcfComposer\AcfComposer;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class PalomoCTA extends Block
+class PalomoKSP extends Block
 {
     /**
      * The block attributes.
@@ -14,8 +14,8 @@ class PalomoCTA extends Block
     public function attributes(): array
     {
         return [
-            'name' => __('Palomo C T A', 'sage'),
-            'description' => __('A simple Palomo C T A block.', 'sage'),
+            'name' => __('Palomo K S P', 'sage'),
+            'description' => __('A simple Palomo K S P block.', 'sage'),
             'category' => 'formatting',
             'icon' => 'editor-ul',
             'keywords' => [],
@@ -35,10 +35,17 @@ class PalomoCTA extends Block
                 'mode' => false,
                 'multiple' => true,
                 'jsx' => true,
-                'color' => false,
+                'color' => [
+                    'background' => true,
+                    'text' => true,
+                    'gradient' => true,
+                ],
             ],
-            'styles' => false,
-            'template' => false,
+            'styles' => ['light', 'dark'],
+            'template' => [
+                'core/heading' => ['placeholder' => 'Hello World'],
+                'core/paragraph' => ['placeholder' => 'Welcome to the Palomo K S P block.'],
+            ],
         ];
     }
 
@@ -48,9 +55,11 @@ class PalomoCTA extends Block
     public function example(): array
     {
         return [
-            'text' => 'Get Started',
-            'url' => '#',
-            'partner' => '1',
+            'items' => [
+                ['item' => 'Item one'],
+                ['item' => 'Item two'],
+                ['item' => 'Item three'],
+            ],
         ];
     }
 
@@ -60,10 +69,7 @@ class PalomoCTA extends Block
     public function with(): array
     {
         return [
-            'text' => $this->text(),
-            'url' => $this->url(),
-            'partner' => $this->partner(),
-            'icon' => get_field('icon'),
+            'items' => $this->items(),
         ];
     }
 
@@ -72,45 +78,24 @@ class PalomoCTA extends Block
      */
     public function fields(): array
     {
-        $palomoCTA = Builder::make('palomo_c_t_a');
+        $palomoKSP = Builder::make('palomo_k_s_p');
 
-        $palomoCTA
-            ->addCheckbox('icon', ['label' => 'icon', 'toogle' => 1, 'choices' => ['show' => 'show icon']])
-            ->addImage('partner', ['label' => 'Next to button', 'return_format' => 'id'])
-            ->addText('text', ['label' => 'Button text'])
-            ->addText('url', ['label' => 'Button URL']);
-        return $palomoCTA->build();
+        $palomoKSP
+            ->addRepeater('items')
+                ->addText('item')
+            ->endRepeater();
+
+        return $palomoKSP->build();
     }
 
     /**
-     * Return the text field.
+     * Return the items field.
      *
-     * @return string
+     * @return array
      */
-    public function text()
+    public function items()
     {
-        return get_field('text') ?: $this->example['text'];
-    }
-
-    /**
-     * Return the url field.
-     *
-     * @return string
-     */
-    public function url()
-    {
-        return get_field('url') ?: $this->example['url'];
-    }
-
-    /**
-     * Return the partner field.
-     *
-     * @return string
-     */
-
-    public function partner()
-    {
-        return get_field('partner') ?: $this->example['partner'];
+        return get_field('items') ?: $this->example['items'];
     }
 
     /**

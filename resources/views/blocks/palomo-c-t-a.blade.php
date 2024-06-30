@@ -2,7 +2,9 @@
   @if ($text && $url)
     <a href="{{ $url }}" class="btn btn-primary bounce-animated">
       {{ $text }}
+      @if ($icon)
       <x-go-chevron-right-16 />
+      @endif
     </a>
     @if ($partner)
     {!! wp_get_attachment_image($partner, 'partner_image', false, ['loading' => 'lazy']) !!}

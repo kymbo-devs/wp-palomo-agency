@@ -30,7 +30,7 @@
     }
 
     .page-width {
-        @apply px-24 max-md:px-5;
+        @apply px-[10%] max-md:px-5;
     }
 
 }
@@ -315,6 +315,83 @@
 
     .wistia-video__subtitle {
         @apply text-4xl max-md:text-lg font-extrabold text-secondary text-center bg-primary p-5 max-md:p-2 max-md:mt-2 mt-4 w-fit mx-auto;
+    }
+
+    /* SECTION STEPS STYLES */
+    .section-steps__text {
+        @apply text-6xl font-light text-primary text-center mb-7;
+    }
+
+    .section-steps__text strong{
+        @apply font-extrabold;
+    }
+
+    .section-steps__desc {
+        @apply text-4xl font-light text-primary text-center mb-14;
+    }
+
+    .section-steps__desc strong{
+        @apply font-extrabold;
+    }
+
+    .section-steps .slick-dots {
+        @apply relative bottom-0;
+    }
+
+    .steps-dots {
+        @apply h-fit;
+    }
+
+    .section-steps__container {
+        @apply !grid grid-cols-2 items-center gap-4 max-md:flex-col max-md:gap-6 w-5/6 mx-auto max-md:w-full;
+    }
+
+    .steps-image {
+        @apply justify-self-end;
+    }
+
+    .steps-content {
+        @apply text-xl text-primary text-left font-light justify-self-start;
+    }
+
+    .steps-content h3 {
+        @apply text-6xl text-primary;
+    }
+
+    .steps-content h3 strong {
+        @apply font-extrabold;
+    }
+
+    .steps-content li {
+        @apply list-disc list-inside;
+    }
+
+    .steps-content p {
+        @apply text-xl;
+    }
+
+    .steps-content h4 {
+        @apply font-extrabold text-2xl;
+    }
+
+    .steps-slick-prev, .steps-slick-next {
+        @apply w-10 h-10 p-2 bg-primary rounded-full flex items-center justify-center text-accent;
+    }
+
+    .steps-buttons {
+        @apply flex flex-row justify-center items-center gap-4 max-md:flex-col max-md:gap-6;
+    }
+
+    .steps-buttons .steps-arrows, .steps-buttons .acf-innerblocks-container {
+        @apply flex flex-row justify-between items-center;
+    }
+
+    .steps-buttons .acf-innerblocks-container {
+        @apply ml-9 gap-9;
+    }
+
+    .steps-buttons .steps-arrows {
+        @apply gap-4;
     }
 
     /* BUTTONS STYLES */
