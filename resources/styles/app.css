@@ -44,7 +44,7 @@
     }
 
     #announcement-close {
-        @apply absolute top-2 right-11 cursor-pointer h-[calc(100%-1rem)];
+        @apply absolute top-2 right-11 max-md:right-2 cursor-pointer h-[calc(100%-1rem)];
     }
     
     #announcement-close svg {
@@ -192,11 +192,11 @@
     .hero__content h4,
     .hero__content h5,
     .hero__content h6{
-        @apply font-extrabold text-5xl leading-[114%] text-primary max-md:text-3xl max-md:text-center uppercase max-md:w-[90%] max-md:m-auto;
+        @apply font-extrabold text-5xl leading-[114%] text-primary max-md:text-3xl max-md:text-center uppercase max-md:w-[100%] max-md:m-auto;
     }
 
     .hero__content p {
-        @apply font-normal text-lg leading-[150%] text-black mt-5 w-2/3 max-md:text-center max-md:mx-auto max-md:w-4/5 max-md:mt-4;
+        @apply font-normal text-lg leading-[150%] text-black mt-5 w-2/3 max-md:text-center max-md:mx-auto max-md:w-full max-md:mt-4;
     }
 
     .hero__content .btn-primary {
@@ -255,7 +255,7 @@
     }
 
     .text-icons__blocks {
-        @apply relative w-full py-12;
+        @apply relative w-full py-12 max-md:py-0;
     }
 
     .text-icons__blocks h1,
@@ -276,21 +276,21 @@
     }
 
     .text-icons .size-text-icons__icon {
-        @apply h-16 w-auto max-md:h-12 absolute;
+        @apply h-16 w-auto max-md:h-10 absolute;
     }
 
     .text-icons .size-text-icons__icon:first-child {
-        @apply transform -scale-x-100 left-0 top-44 max-md:top-auto max-md:bottom-11;
+        @apply transform -scale-x-100 left-0 top-44 max-md:top-auto max-md:bottom-3;
     }
 
     .text-icons .size-text-icons__icon:last-child {
-        @apply transform right-0 top-16 max-md:top-auto max-md:bottom-11;
+        @apply transform right-0 top-16 max-md:top-auto max-md:bottom-3;
     }
 
     /* WISTIA VIDEO STYLES */
 
     .wistia-video  {
-        @apply border-t-primary border-t-[3px] mt-16 mb-32  max-md:border-none max-md:mt-4;
+        @apply border-t-primary border-t-[3px] mt-16 mb-32 max-md:pb-16  max-md:border-none max-md:mt-0 max-md:mb-0 max-md:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)];
     }
 
     .wistia-video__container {
@@ -317,9 +317,16 @@
         @apply text-4xl max-md:text-lg font-extrabold text-secondary text-center bg-primary p-5 max-md:p-2 max-md:mt-2 mt-4 w-fit mx-auto;
     }
 
+    .wistia-video__container img.w-css-reset {
+        @apply !object-cover;
+    }
+
     /* SECTION STEPS STYLES */
+    .section-steps {
+        @apply max-md:pt-16;
+    }
     .section-steps__text {
-        @apply text-6xl font-light text-primary text-center mb-7;
+        @apply text-6xl max-md:text-3xl font-light text-primary text-center mb-7 max-md:mb-4;
     }
 
     .section-steps__text strong{
@@ -327,7 +334,7 @@
     }
 
     .section-steps__desc {
-        @apply text-4xl font-light text-primary text-center mb-14;
+        @apply text-4xl max-md:text-xl font-light text-primary text-center mb-14;
     }
 
     .section-steps__desc strong{
@@ -339,15 +346,56 @@
     }
 
     .steps-dots {
-        @apply h-fit;
+        @apply h-fit max-md:hidden block mb-14;
+    }
+
+    .steps-dots ul {
+        @apply flex flex-row items-center justify-center gap-0;
+    }
+    .steps-dots li {
+        @apply w-fit h-fit mx-0;
+    }
+
+    .steps-dots-mobile li {
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        @apply bg-primary-300 rounded-full;
+    }
+
+    .steps-dots-mobile li.slick-active {
+        @apply bg-primary;
+    }
+
+    .custom-dot {
+        @apply flex flex-row gap-0 w-full items-center justify-end transition-all ease-in-out duration-500;
+    }
+
+    .custom-dot a {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        @apply px-2 py-0 rounded-full bg-primary-300 transition-all ease-in-out duration-500;
+    }
+
+    .custom-dot line {
+        @apply transition-all ease-in-out duration-500;
+    }
+
+    .steps-dots .slick-active  .custom-dot a, .steps-dots .slick-active  .custom-dot line{
+        @apply bg-primary stroke-primary;
+    }
+
+    .custom-dot.highlight a, .custom-dot.highlight line {
+        @apply bg-primary stroke-primary;
     }
 
     .section-steps__container {
-        @apply !grid grid-cols-2 items-center gap-4 max-md:flex-col max-md:gap-6 w-5/6 mx-auto max-md:w-full;
+        @apply !grid grid-cols-2 items-center gap-4 max-md:grid-cols-[2fr_1fr] max-md:gap-6 w-5/6 mx-auto max-md:w-full;
     }
 
     .steps-image {
-        @apply justify-self-end;
+        @apply justify-self-end max-md:justify-self-center;
+    }
+
+    .steps-image img {
+        @apply w-full mx-auto;
     }
 
     .steps-content {
@@ -355,7 +403,7 @@
     }
 
     .steps-content h3 {
-        @apply text-6xl text-primary;
+        @apply text-6xl text-primary max-md:text-3xl;
     }
 
     .steps-content h3 strong {
@@ -363,23 +411,27 @@
     }
 
     .steps-content li {
-        @apply list-disc list-inside;
+        @apply list-disc list-inside max-md:text-base;
     }
 
     .steps-content p {
-        @apply text-xl;
+        @apply text-xl max-md:text-base;
     }
 
     .steps-content h4 {
-        @apply font-extrabold text-2xl;
+        @apply font-extrabold text-2xl max-md:text-lg;
     }
 
     .steps-slick-prev, .steps-slick-next {
-        @apply w-10 h-10 p-2 bg-primary rounded-full flex items-center justify-center text-accent;
+        @apply w-10 h-10 max-md:h-14 max-md:w-14 p-2 bg-primary rounded-full flex items-center justify-center text-accent;
     }
 
     .steps-buttons {
-        @apply flex flex-row justify-center items-center gap-4 max-md:flex-col max-md:gap-6;
+        @apply flex flex-row justify-center items-center gap-4 max-md:gap-6;
+    }
+
+    .steps-buttons a {
+        @apply max-md:!text-lg;
     }
 
     .steps-buttons .steps-arrows, .steps-buttons .acf-innerblocks-container {
@@ -387,11 +439,187 @@
     }
 
     .steps-buttons .acf-innerblocks-container {
-        @apply ml-9 gap-9;
+        @apply ml-9 max-md:ml-0 gap-4 max-md:flex-col;
+    }
+
+    .steps-buttons .acf-innerblocks-container .hero-buttons, .steps-buttons .acf-innerblocks-container .btn {
+        @apply max-md:w-full justify-center;
     }
 
     .steps-buttons .steps-arrows {
         @apply gap-4;
+    }
+
+    /* SECTION KSP (KEY SELLING POINTS) STYLES */
+
+    .ksp-section {
+        @apply my-16;
+    }
+
+    .ksp-border {
+        background: linear-gradient(90deg, #937659 0%, #61442C 100%);
+        @apply h-6 mt-16;
+    }
+
+    .ksp-section__container {
+        @apply grid grid-cols-3 mt-20 gap-10 max-md:grid-cols-1 max-md:gap-6 max-md:mt-1;
+    }
+
+    .ksp-section__item {
+        filter: drop-shadow(2px 2px 4px #A2998B);
+        @apply h-fit bg-secondary rounded-lg overflow-hidden;
+    }
+
+    .ksp-section__video .wistia_responsive_wrapper {
+        @apply  !relative;
+    }
+
+    .ksp-section .wistia_responsive_padding {
+        @apply !relative !p-0;
+    }
+
+    .ksp-section__title {
+        @apply text-6xl font-light text-primary text-center mb-7 max-md:text-2xl max-md:w-full max-md:mb-4;
+    }
+
+    .ksp-section__title strong {
+        @apply font-extrabold;
+    }
+
+    .ksp-section__info {
+        @apply p-5;
+    }
+
+    .ksp-section__info p {
+        @apply mt-5 text-primary font-light text-lg;
+    }
+
+    .ksp-section__tag {
+        @apply text-sm mr-3 uppercase font-medium text-primary leading-3 px-1 rounded-[5px] border-[1px] border-primary;
+    }
+
+    /* PORTFOLIO SECTION STYLES */
+    .portfolio-section {
+        background: linear-gradient(0deg, #694C33 0%, #907357 100%);
+        @apply py-16;
+    }
+
+    .portfolio-section__title {
+        @apply text-white text-5xl font-light text-center mb-7 max-md:text-2xl max-md:w-full max-md:mb-4;
+    }
+
+    .portfolio-section__title strong {
+        @apply font-extrabold;
+    }
+
+    .portfolio-section .hero-buttons {
+        @apply flex justify-center items-center;
+    }
+
+    .portfolio-section__video .wistia_responsive_wrapper {
+        @apply  !relative;
+    }
+
+    .portfolio-section .wistia_responsive_padding {
+        @apply !relative !p-0;
+    }
+
+    .portfolio-section .slick-slide {
+        @apply mx-4 rounded-2xl overflow-hidden;
+    }
+
+    .portfolio-section .acf-innerblocks-container{
+        @apply mt-10 max-md:mt-5;
+    }
+
+    /* IMAGE WITH TEXT SECTION STYLES */
+    .img-txt {
+        @apply py-16;
+    }
+
+    .img-txt__title {
+        @apply text-6xl font-light text-primary text-center mb-7 max-md:text-2xl max-md:w-full max-md:mb-4;
+    }
+
+    .img-txt__item .img-txt__info{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+    }
+    .img-txt__item.first .img-txt__info{
+        align-items: flex-end;
+    }
+
+    .img-txt__info.first .img-txt__info-title {
+        @apply text-right;
+    }
+    .img-txt__info.first p.img-txt__desc{
+        @apply text-right;
+    }
+
+    .img-txt__info .img-txt__info-title{
+        @apply text-4xl text-primary text-left ;
+    }
+    .img-txt__info p.img-txt__desc {
+        @apply text-2xl text-primary font-light text-left max-lg:text-xl;
+    }
+
+    .img-txt__title strong {
+        @apply font-extrabold;
+    }
+
+    .img-txt__item {
+        @apply grid grid-cols-2 gap-16 max-md:grid-cols-1  mb-9  max-md:gap-3;
+    }
+
+    .img-txt__info.first {
+        @apply md:-order-1;
+    }
+
+    .img-txt__item img.size-img-txt__image {
+        filter: drop-shadow(10px 10px 0px rgba(97, 68, 44, 1));
+        aspect-ratio: 1/1;
+
+        @apply  w-full h-auto object-cover object-center rounded-3xl;
+    }
+
+    .img-txt__item.first img.size-img-txt__image {
+        filter: drop-shadow(-10px 10px 0px rgba(97, 68, 44, 1));
+    }
+
+   .img-txt__item img.attachment-img-txt__logo.size-img-txt__logo {
+        max-width: 60%;
+    }
+
+    .img-txt__item {
+        @apply mr-11 ml-11;
+    }
+    
+    /* PRICING TABLE STYLES */
+    .pricing-section {
+        background: linear-gradient(270deg, #64472F 0%, #937659 100%);
+        @apply py-16 grid grid-cols-[1fr_3fr] items-center;
+    }
+
+    .pricing-section__title {
+        @apply text-white text-4xl font-light text-left max-md:text-2xl max-md:w-full;
+    }
+
+    .pricing-section__title strong {
+        @apply font-extrabold;
+    }
+
+    .pricing-section__tables {
+        @apply grid grid-cols-3 gap-10 max-md:grid-cols-1 max-md:gap-6 text-center;
+    }
+
+    .pricing-section__title {
+        @apply text-black text-4xl font-extrabold text-center max-md:text-2xl max-md:w-full;
+    }
+
+    .pricing-section__button {
+        @apply mx-auto;
     }
 
     /* BUTTONS STYLES */
@@ -404,7 +632,7 @@
         @apply bg-accent text-primary shadow-primary shadow-[3px_5px];
     }
 
-    .btn-primary svg{
+    .btn-primary svg {
         @apply size-7;
     }
 }

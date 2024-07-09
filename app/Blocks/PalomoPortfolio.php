@@ -6,7 +6,7 @@ use Log1x\AcfComposer\AcfComposer;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class PalomoCTA extends Block
+class PalomoPortfolio extends Block
 {
     /**
      * The block attributes.
@@ -14,8 +14,8 @@ class PalomoCTA extends Block
     public function attributes(): array
     {
         return [
-            'name' => __('Palomo C T A', 'sage'),
-            'description' => __('A simple Palomo C T A block.', 'sage'),
+            'name' => __('Palomo Portfolio', 'sage'),
+            'description' => __('A simple Palomo Portfolio block.', 'sage'),
             'category' => 'formatting',
             'icon' => 'editor-ul',
             'keywords' => [],
@@ -33,7 +33,7 @@ class PalomoCTA extends Block
                 'full_height' => false,
                 'anchor' => false,
                 'mode' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'jsx' => true,
                 'color' => false,
             ],
@@ -48,9 +48,12 @@ class PalomoCTA extends Block
     public function example(): array
     {
         return [
-            'text' => 'Get Started',
-            'url' => '#',
-            'partner' => '1',
+            'txt_title' => 'RECENT <span class="text-white">WORK</span>',
+            'videos' => [
+                ['wistia_id' => 'abc123'],
+                ['wistia_id' => 'def456'],
+                ['wistia_id' => 'ghi789'],
+            ],
         ];
     }
 
@@ -60,10 +63,8 @@ class PalomoCTA extends Block
     public function with(): array
     {
         return [
-            'text' => $this->text(),
-            'url' => $this->url(),
-            'partner' => $this->partner(),
-            'icon' => get_field('icon'),
+            'txt_title' => get_field('txt_title') ?: 'RECENT <span class="text-white">WORK</span>',
+            'videos' => $this->items(),
         ];
     }
 
@@ -72,45 +73,25 @@ class PalomoCTA extends Block
      */
     public function fields(): array
     {
-        $palomoCTA = Builder::make('palomo_c_t_a');
+        $palomoPortfolio = Builder::make('palomo_portfolio');
 
-        $palomoCTA
-            ->addCheckbox('icon', ['label' => 'icon', 'toogle' => 1, 'choices' => ['show' => 'show icon']])
-            ->addImage('partner', ['label' => 'Next to button', 'return_format' => 'id'])
-            ->addText('text', ['label' => 'Button text'])
-            ->addText('url', ['label' => 'Button URL']);
-        return $palomoCTA->build();
+        $palomoPortfolio
+            ->addText('txt_title')
+            ->addRepeater('videos')
+                ->addText('wistia_id')
+            ->endRepeater();
+
+        return $palomoPortfolio->build();
     }
 
     /**
-     * Return the text field.
+     * Return the items field.
      *
-     * @return string
+     * @return array
      */
-    public function text()
+    public function items()
     {
-        return get_field('text') ?: $this->example['text'];
-    }
-
-    /**
-     * Return the url field.
-     *
-     * @return string
-     */
-    public function url()
-    {
-        return get_field('url') ?: $this->example['url'];
-    }
-
-    /**
-     * Return the partner field.
-     *
-     * @return string
-     */
-
-    public function partner()
-    {
-        return get_field('partner') ?: $this->example['partner'];
+        return get_field('videos') ?: $this->example['videos'];
     }
 
     /**

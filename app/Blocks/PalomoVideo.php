@@ -22,7 +22,7 @@ class PalomoVideo extends Block
             'post_types' => [],
             'parent' => [],
             'ancestor' => [],
-            'mode' => 'preview',
+            'mode' => 'editor',
             'align' => '',
             'align_text' => '',
             'align_content' => '',
@@ -53,6 +53,7 @@ class PalomoVideo extends Block
             'title' => 'We take creatives',
             'subtitle' => 'very seriously...',
             'desc' => 'and we make it hassle-free for you...',
+            'id' => 'g3c6km5uu5',
         ];
     }
 
@@ -65,6 +66,7 @@ class PalomoVideo extends Block
             'title' => $this->title(),
             'subtitle' => $this->subtitle(),
             'desc' => $this->desc(),
+            'id' => $this->id(),
         ];
     }
 
@@ -76,11 +78,22 @@ class PalomoVideo extends Block
         $palomoVideo = Builder::make('palomo_video');
 
         $palomoVideo
+            ->addText('id', ['label' => 'Wistia video id'])
             ->addText('title')
             ->addText('subtitle')
             ->addText('desc');
 
         return $palomoVideo->build();
+    }
+
+    /**
+     * Return the id field.
+     * 
+     * @return string
+     */
+    public function id()
+    {
+        return get_field('id') ?: $this->example['id'];
     }
 
     /**

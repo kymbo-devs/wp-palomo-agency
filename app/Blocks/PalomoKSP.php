@@ -22,7 +22,7 @@ class PalomoKSP extends Block
             'post_types' => [],
             'parent' => [],
             'ancestor' => [],
-            'mode' => 'preview',
+            'mode' => 'editor',
             'align' => '',
             'align_text' => '',
             'align_content' => '',
@@ -33,19 +33,12 @@ class PalomoKSP extends Block
                 'full_height' => false,
                 'anchor' => false,
                 'mode' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'jsx' => true,
-                'color' => [
-                    'background' => true,
-                    'text' => true,
-                    'gradient' => true,
-                ],
+                'color' => false,
             ],
-            'styles' => ['light', 'dark'],
-            'template' => [
-                'core/heading' => ['placeholder' => 'Hello World'],
-                'core/paragraph' => ['placeholder' => 'Welcome to the Palomo K S P block.'],
-            ],
+            'styles' => false,
+            'template' => false,
         ];
     }
 
@@ -55,10 +48,11 @@ class PalomoKSP extends Block
     public function example(): array
     {
         return [
-            'items' => [
-                ['item' => 'Item one'],
-                ['item' => 'Item two'],
-                ['item' => 'Item three'],
+            'title' => 'WE COMBINE <strong>CREATIVITY</strong><br> WITH <strong>DATA</strong>',
+            'ksp' => [
+                ['desc' => 'Item one', 'tag' => [['tag_text' => 'Tag one'], ['tag_text' => 'Tag two']], 'wistia_id' => 'g3c6km5uu5'],
+                ['desc' => 'Item two', 'tag' => [['tag_text' => 'Tag one'], ['tag_text' => 'Tag two']], 'wistia_id' => '4yhx8r4nxe'],
+                ['desc' => 'Item three', 'tag' => [['tag_text' => 'Tag one'], ['tag_text' => 'Tag two']], 'wistia_id' => 'wh7uofrfq7'],
             ],
         ];
     }
@@ -69,7 +63,8 @@ class PalomoKSP extends Block
     public function with(): array
     {
         return [
-            'items' => $this->items(),
+            'title' => get_field('title') ?: $this->example['title'],
+            'ksp' => $this->ksp(),
         ];
     }
 
@@ -81,8 +76,15 @@ class PalomoKSP extends Block
         $palomoKSP = Builder::make('palomo_k_s_p');
 
         $palomoKSP
-            ->addRepeater('items')
-                ->addText('item')
+            ->addText('title')
+            ->addRepeater('ksp')
+                ->addText('wistia_id', [
+                    'label' => 'Wistia video id',
+                ])
+                ->addRepeater('tag')
+                    ->addText('tag_text')
+                ->endRepeater()
+                ->addText('desc')
             ->endRepeater();
 
         return $palomoKSP->build();
@@ -93,9 +95,9 @@ class PalomoKSP extends Block
      *
      * @return array
      */
-    public function items()
+    public function ksp()
     {
-        return get_field('items') ?: $this->example['items'];
+        return get_field('ksp') ?: $this->example['ksp'];
     }
 
     /**

@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
-    <script src="https://fast.wistia.com/embed/medias/wh7uofrfq7.jsonp" async></script>
     <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
     @php(do_action('get_header'))
     @php(wp_head())

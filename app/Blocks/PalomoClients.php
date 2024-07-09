@@ -22,7 +22,7 @@ class PalomoClients extends Block
             'post_types' => [],
             'parent' => [],
             'ancestor' => [],
-            'mode' => 'preview',
+            'mode' => 'editor',
             'align' => '',
             'align_text' => '',
             'align_content' => '',
