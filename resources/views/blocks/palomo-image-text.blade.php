@@ -10,15 +10,19 @@
       @else
         <div class="img-txt__item">
       @endif
+
+         {!! wp_get_attachment_image( $item['logo_image'], 'img-txt__logo logo-mobile', false, ['loading' => 'lazy'] ) !!}
           {!! wp_get_attachment_image( $item['image'], 'img-txt__image', false, ['loading' => 'lazy'] ) !!}
           @if($item['is_reversed'])
             <div class="img-txt__info first">
           @else
             <div class="img-txt__info">
           @endif
-            {!! wp_get_attachment_image( $item['logo_image'], 'img-txt__logo', false, ['loading' => 'lazy'] ) !!}
+            {!! wp_get_attachment_image( $item['logo_image'], 'img-txt__logo logo-desktop', false, ['loading' => 'lazy'] ) !!}
             <h3 class="img-txt__info-title">{!! $item['title'] !!}</h3>
             <p class="img-txt__desc">{!! $item['content'] !!}</p>
+            <a href="{{ $item['button_link'] }}" class="image-text__button btn btn-primary">{!! $item['button_text'] !!} <x-go-chevron-right-16 />
+            </a>
           </div>
         </div>
       @endforeach

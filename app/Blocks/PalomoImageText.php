@@ -51,17 +51,29 @@ class PalomoImageText extends Block
                 [
                     'is_reversed' => false,
                     'image' => 1,
-                    'title' => '<strong>lorem ipsum</strong> dolor sit amet',
-                    'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.',
+                    'title' => 'Title',
+                    'content' => 'Content',
                     'logo_image' => 1,
+                    'button_text' => 'Get started',
+                    'button_link' => [
+                        'url' => '',
+                        'title' => '',
+                        'target' => '',
+                    ],
                 ],
                 [
                     'is_reversed' => true,
                     'image' => 1,
-                    'title' => '<strong>lorem ipsum</strong> dolor sit amet',
-                    'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.',
+                    'title' => 'Title',
+                    'content' => 'Content',
                     'logo_image' => 1,
-                ],
+                    'button_text' => 'Get started',
+                    'button_link' => [
+                        'url' => '',
+                        'title' => '',
+                        'target' => '',
+                    ],
+                ]
             ],
         ];
     }
@@ -98,7 +110,10 @@ class PalomoImageText extends Block
                 ->addTextarea('content')
                 ->addImage('logo_image', [
                     'return_format' => 'id',
+                    
                 ])
+                ->addText('button_text')
+                ->addLink('button_link')
             ->endRepeater();
 
         return $palomoImageText->build();
