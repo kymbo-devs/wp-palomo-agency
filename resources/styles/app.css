@@ -457,8 +457,7 @@
     }
 
     .ksp-border {
-        background: linear-gradient(90deg, #937659 0%, #61442C 100%);
-        @apply h-6 mt-16;
+        @apply bg-[linear-gradient(90deg,#937659_0%,#61442C_100%)] h-6 mt-16;
     }
 
     .ksp-section__container {
@@ -500,8 +499,7 @@
 
     /* PORTFOLIO SECTION STYLES */
     .portfolio-section {
-        background: linear-gradient(0deg, #694C33 0%, #907357 100%);
-        @apply py-16;
+        @apply bg-[linear-gradient(0deg,#694C33_0%,#907357_100%)] py-16;
     }
 
     .portfolio-section__title {
@@ -542,27 +540,25 @@
     }
 
     .img-txt__item .img-txt__info{
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: flex-start;
+        @apply flex flex-col gap-6 items-start max-md:items-center;
     }
     .img-txt__item.first .img-txt__info{
-        align-items: flex-end;
+        @apply items-end max-md:items-center;
     }
 
     .img-txt__info.first .img-txt__info-title {
-        @apply text-right;
+        @apply text-center md:text-right;
+
     }
     .img-txt__info.first p.img-txt__desc{
-        @apply text-right;
+        @apply text-center md:text-right;
     }
 
     .img-txt__info .img-txt__info-title{
-        @apply text-4xl text-primary text-left ;
+        @apply text-4xl text-primary text-center md:text-left ;
     }
     .img-txt__info p.img-txt__desc {
-        @apply text-2xl text-primary font-light text-left max-lg:text-xl;
+        @apply md:w-4/5 text-xl max-lg:text-base max-sm:text-sm text-primary font-light text-center md:text-left ;
     }
 
     .img-txt__title strong {
@@ -570,18 +566,17 @@
     }
 
     .img-txt__item {
-        @apply grid grid-cols-2 gap-16 max-md:grid-cols-1  mb-9  max-md:gap-3;
+        @apply grid grid-cols-2 gap-16  items-center  justify-items-center	  max-md:grid-cols-1  mb-9 max-md:mb-16 max-md:gap-3;
     }
 
     .img-txt__info.first {
         @apply md:-order-1;
     }
 
+
     .img-txt__item img.size-img-txt__image {
         filter: drop-shadow(10px 10px 0px rgba(97, 68, 44, 1));
-        aspect-ratio: 1/1;
-
-        @apply  w-full h-auto object-cover object-center rounded-3xl;
+        @apply  aspect-square w-4/5 h-full object-cover object-center rounded-3xl;
     }
 
     .img-txt__item.first img.size-img-txt__image {
@@ -589,17 +584,26 @@
     }
 
    .img-txt__item img.attachment-img-txt__logo.size-img-txt__logo {
-        max-width: 60%;
+        @apply max-w-[60%];
     }
 
     .img-txt__item {
-        @apply mr-11 ml-11;
+        @apply max-md:mr-2 max-md:ml-2 max-md:justify-items-center;
     }
+
+    .img-txt__item .logo-mobile{
+
+        @apply md:hidden;
+    }
+    .img-txt__item .logo-desktop{
+        @apply max-md:hidden;
+    }
+
+
     
     /* PRICING TABLE STYLES */
     .pricing-section {
-        background: linear-gradient(270deg, #64472F 0%, #937659 100%);
-        @apply py-16 grid grid-cols-[1fr_3fr] items-center;
+        @apply bg-[linear-gradient(270deg,#64472F_0%,#937659_100%)] py-16 grid grid-cols-[1fr_3fr] items-center;
     }
 
     .pricing-section__title {
