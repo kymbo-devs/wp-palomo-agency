@@ -41,6 +41,13 @@ class App extends Composer
             'linkedin' => get_field('linkedin', 'option'),
             'whatsapp' => get_field('whatsapp', 'option'),
             'tiktok' => get_field('tiktok', 'option'),
+            'show_whatsapp' => get_field('show_whatsapp', 'option'),
+            'whatsapp_number' => get_field('whatsapp_number', 'option'),
+            'whatsapp_text' => get_field('whatsapp_text', 'option'),
+            'show_popup' => get_field('show_popup', 'option'),
+            'popup_title' => get_field('popup_title', 'option'),
+            'popup_subtitle' => get_field('popup_subtitle', 'option'),
+            'popup_button' => get_field('popup_button', 'option'),
         ];
     }
 

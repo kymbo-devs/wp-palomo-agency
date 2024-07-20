@@ -4,6 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.animated-background {
+    background-size: 300% 300%;
+    background-image: linear-gradient(45deg, #C78C5A, #61442C, #C78C5A, #61442C);
+
+    -webkit-animation: gradientAnimation 10s ease infinite;
+    -moz-animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
+    filter: drop-shadow(4px 4px 7.3px rgba(0, 0, 0, 0.60));
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 @layer base {
 
     body, html{
@@ -241,7 +265,7 @@
     }
 
     .clients-logos__header {
-        @apply w-1/5 max-md:w-full text-left max-md:text-center max-md:w-full text-white font-extrabold text-3xl;
+        @apply w-1/5 text-left max-md:text-center max-md:w-full text-white font-extrabold text-3xl;
     }
 
     .clients-logos__slider {
@@ -602,32 +626,134 @@
 
     
     /* PRICING TABLE STYLES */
-    .pricing-section {
-        @apply bg-[linear-gradient(270deg,#64472F_0%,#937659_100%)] py-16 grid grid-cols-[1fr_3fr] items-center;
+
+    .wp-block-palomo-pricing.pricing-section.page-width {
+        @apply px-[74px] max-md:px-[16px];
     }
 
-    .pricing-section__title {
-        @apply text-white text-4xl font-light text-left max-md:text-2xl max-md:w-full;
+    .pricing-section {
+        @apply bg-[linear-gradient(270deg,#64472F_0%,#937659_100%)] py-16 grid grid-cols-[1fr_3fr] items-center gap-10 max-md:grid-cols-1;
+    }
+
+    .pricing-section__pricetitle {
+        @apply text-black text-[28px] leading-4 font-light text-left max-md:text-2xl max-md:w-full px-[10px] pt-[24px] pb-[16px] border-b-[2px] border-black;
     }
 
     .pricing-section__title strong {
         @apply font-extrabold;
     }
 
-    .pricing-section__tables {
-        @apply grid grid-cols-3 gap-10 max-md:grid-cols-1 max-md:gap-6 text-center;
+    .pricing-section__subtitle{
+
+    @apply text-black text-sm font-extrabold leading-[27.13px] italic px-[54px] pt-4;
     }
 
+    .pricing-section__price{
+        @apply text-yellow-900 text-[28px] font-extrabold leading-[27.13px] pb-4 border-b-[2px] border-black mb-4;
+    }
+
+    .pricing-section__tables {
+        @apply gap-10 max-md:gap-6 text-center max-md:justify-items-center;
+    }
     .pricing-section__title {
-        @apply text-black text-4xl font-extrabold text-center max-md:text-2xl max-md:w-full;
+        @apply text-white text-4xl text-center ;
+    }
+
+    .pricing-section__pricetitle {
+        @apply text-black text-[28px] font-extrabold text-center max-md:text-2xl max-md:w-full  ;
     }
 
     .pricing-section__button {
         @apply mx-auto;
     }
 
-    /* BUTTONS STYLES */
+  .pricing-section table .btn.btn-primary {
+    @apply bg-white text-[18px] font-semibold leading-snug mb-4 mt-4 py-2 pl-4 pr-3 capitalize;
+  }
 
+    .pricing-section table:nth-child(3n+1) .btn.btn-primary {
+    @apply bg-white 
+  }
+  
+  .pricing-section table:nth-child(3n+2) .btn.btn-primary {
+    @apply bg-accent 
+  }
+  
+  .pricing-section table:nth-child(3n) .btn.btn-primary {
+    @apply bg-accent 
+  }
+
+    .pricing-section table{
+        @apply bg-accent rounded-[38px] border-[2px] border-black overflow-hidden border-separate w-[100%];
+        }
+
+    .pricing-section table:nth-child(3n+1) {
+     @apply bg-accent;
+    }
+
+    .pricing-section table:nth-child(3n+2) {
+        @apply bg-white;
+    }
+
+    .pricing-section table:nth-child(3n) {
+        @apply bg-[#CCB591];
+    }  
+
+    table {
+        @apply border-spacing-0;
+    }
+
+    td {
+        @apply px-0 py-0;
+    }
+
+    td img {
+        @apply m-auto;
+    }
+
+    tbody {
+        @apply w-full table;
+    }
+
+    .pricing-section__accordion{
+        @apply flex flex-col border-black pt-4 pb-4 pl-[22px] border-t-2 border-b-2 items-start text-black text-lg font-extrabold leading-[27.13px] text-left mt-4;
+    }
+    .pricing-section__accordion svg {    
+        @apply text-[#61442c];
+    }
+
+    .pricing-section__accordion-btn {
+        @apply flex w-full justify-between px-4;
+    }
+    .pricing-section__accordion-btn svg{  
+        @apply  w-6 h-6 text-black;
+    }
+    .pricing-section li{
+       @apply text-yellow-900 text-base font-extrabold capitalize flex gap-3;
+    }
+    
+    .pricing-section__accordion ul{
+        @apply flex flex-col gap-5;
+    }
+
+    .accordion__content{
+        @apply overflow-hidden max-h-0 transition-all ease-in-out duration-500; 
+    }
+
+    .accordion__content.active {
+        @apply max-h-[171px] mb-[24px] mt-[32px];
+    }
+
+
+    .pricing-section .slick-slide {
+        @apply mx-2 rounded-3xl overflow-hidden ;
+    }
+
+    .pricing-section .slick-slide table{
+        @apply max-w-[80];
+    }
+
+    /* BUTTONS STYLES */
     a.btn {
         @apply text-center text-2xl font-semibold py-3 px-6 rounded-full flex flex-row items-center gap-1 w-fit;    
     }
@@ -639,4 +765,57 @@
     .btn-primary svg {
         @apply size-7;
     }
+
+    /* CALENDAR STYLES */
+
+    .calendar-title h2{
+       @apply bg-secondary-100 w-fit px-24 max-md:px-2 h-[33px] text-center text-yellow-900 text-[50px] max-md:text-[28px]  font-extrabold uppercase leading-[31px] -mt-4;
+    }
+    
+    .calendar-title {
+        @apply w-full gap-12 mt-16 border-t-[3px] max-md:border-t-0 border-primary flex flex-col items-center max-md:px-4 ;
+    }
+    .wp-block-palomo-calendar-faq.calendar-faq-section.page-width {
+        @apply pr-0 pl-0;
+    }
+    
+    .faq-title h3{
+        @apply w-fit px-24 max-md:px-2 h-[33px] text-center text-yellow-900 text-[50px] font-semibold capitalize mt-2;
+    }
+    .faq-title{
+        @apply w-full gap-12 mt-16 mb-16 max-md:border-t-0  flex flex-col items-center max-md:px-4;
+    }
+
+    button.faq__accordion-btn.accordion__trigger {
+        @apply w-full flex justify-between items-center px-6 py-6 max-md:px-3  bg-[#F4EADB] rounded-[26px] max-md:rounded-2xl gap-2.5 text-yellow-900 text-[22px] max-md:text-[14px] font-medium font-['Poppins'] ;
+    }
+
+    .faq-accordion__content{
+        @apply overflow-hidden max-h-0 transition-all ease-in-out duration-500; 
+    }
+
+    .faq-accordion__content.active {
+        @apply max-h-[171px] mb-[24px] mt-[32px];
+    }
+
+    button.faq__accordion-btn.accordion__trigger svg {
+        @apply w-6 text-black;
+    }
+    .faq-title ul{
+        @apply w-full flex flex-col gap-8 items-center justify-center ;
+    }
+    .faq-title li{
+        @apply w-[60%] max-md:w-[98%] ;
+    }
+    
+    .accordion__content {
+        @apply text-yellow-900 text-[22px] max-md:text-[14px] font-medium font-['Poppins'] uppercase leading-tight pl-[28px] ;
+    }
+
+    .faq__accordion {
+        @apply w-full flex flex-col gap-5;
+    }
+
 }
+
+

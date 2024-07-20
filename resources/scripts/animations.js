@@ -38,7 +38,7 @@ export const animations = () => {
         }
     ).delay(2);
 
-    gsap.fromTo('.partner_image', 
+    gsap.fromTo('.size-partner_image', 
         {
             opacity: 0,
         }, 
@@ -51,15 +51,14 @@ export const animations = () => {
 
     gsap.from('.text-icons .text-icons__blocks h1, .text-icons .text-icons__blocks h2, .text-icons .text-icons__blocks h3, .text-icons .text-icons__blocks h4, .text-icons .text-icons__blocks h5, .text-icons .text-icons__blocks h6', 
         {
-            duration: 2,
+            duration: 4,
             text: " ",
             ease: "none",
             scrollTrigger: {
                 trigger: '.text-icons',
                 start: 'top center+=200',
-                end: 'bottom bottom',
-                scrub: true,
-                once: true
+                end: 'bottom bottom-=400',
+                scrub: true
             }
         }
     );
@@ -75,6 +74,8 @@ export const animations = () => {
         scrollTrigger: {
             trigger: '.text-icons',
             start: 'bottom center+=200',
+            end: 'bottom bottom-=400',
+            scrub: true
         }
     }
     );
@@ -94,6 +95,8 @@ export const animations = () => {
         scrollTrigger: {
             trigger: '.text-icons',
             start: 'bottom center+=200',
+            end: 'bottom bottom-=400',
+            scrub: true
         }
     }
     );

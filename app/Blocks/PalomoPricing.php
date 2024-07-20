@@ -22,7 +22,7 @@ class PalomoPricing extends Block
             'post_types' => [],
             'parent' => [],
             'ancestor' => [],
-            'mode' => 'preview',
+            'mode' => 'editor',
             'align' => '',
             'align_text' => '',
             'align_content' => '',
@@ -89,6 +89,7 @@ class PalomoPricing extends Block
                     'button_text' => 'Get Started',
                     'button_link' => '#',
                 ],
+                
             ],
         ];
     }

@@ -148,7 +148,16 @@ class PalomoStyles extends Field
             ->addText('instagram', ['label' => 'Instagram'])
             ->addText('linkedin', ['label' => 'Linkedin'])
             ->addText('tiktok', ['label' => 'Tiktok'])
-            ->addText('whatsapp', ['label' => 'Whatsapp']);
+            ->addText('whatsapp', ['label' => 'Whatsapp'])
+            ->addTab('Whatsapp button')
+            ->addTrueFalse('show_whatsapp', ['label' => 'Active'])
+            ->addText('whatsapp_number', ['label' => 'Number'])
+            ->addText('whatsapp_text', ['label' => 'Predefined message'])
+            ->addTab('Pop up')
+            ->addTrueFalse('show_popup', ['label' => 'Active'])
+            ->addText('popup_title', ['label' => 'Title'])
+            ->addText('popup_subtitle', ['label' => 'Subtitle'])
+            ->addText('popup_button', ['label' => 'Button']);
 
         return $palomoStyles->build();
     }
