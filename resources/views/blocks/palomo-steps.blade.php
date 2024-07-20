@@ -80,7 +80,6 @@
 
       // Add disabled class to first and last slide
       $('.section-steps__steps').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        console.log(slick);
         $('.steps-slick-prev').removeClass('disabled');
         $('.steps-slick-next').removeClass('disabled');
         if (nextSlide === 0) {

@@ -32,8 +32,37 @@ class MenuDrawer extends HTMLElement {
     }
 }
 
+class Accordion extends HTMLElement {
+    constructor() {
+        super();
+        this.triggers = this.querySelectorAll('.accordion__trigger');
+        this.contents = this.querySelectorAll('.accordion__content');
+    }
+
+    toggle(index) {
+        this.contents.forEach((content, i) => {
+            if (i === index) {
+                content.classList.toggle('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    }
+
+    connectedCallback() {
+        this.triggers.forEach((trigger, index) => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggle(index);
+            });
+        });
+    }
+}
+
 export const components = () => {
     customElements.define('menu-drawer', MenuDrawer);
+    customElements.define('accordion-component', Accordion);
 }
 
 import.meta.webpackHot?.accept(components);
+

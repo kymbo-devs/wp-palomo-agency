@@ -32,9 +32,13 @@
         </aside>
       @endif
 
-      @include('sections.footer')
+      
     </div>
-
+    
+    
+    @includeWhen($show_whatsapp == 0, 'sections.wapp')
+    @includeWhen($show_popup == 0, 'sections.popup')
+    @include('sections.footer')
     @php(do_action('get_footer'))
     @php(wp_footer())
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
