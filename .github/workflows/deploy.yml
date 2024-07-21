@@ -34,26 +34,10 @@ jobs:
       - name: Build theme
         run: yarn build
 
-      - name: Start SSH agent
+      - name: Start SSH agent and add key
         run: |
           eval "$(ssh-agent -s)"
-        shell: bash
-
-      - name: Add SSH key
-        run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
-        shell: bash
-
-      - name: List added keys
-        run: ssh-add -L
-        shell: bash
-
-      - name: Test SSH Connection
-        env:
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-        run: |
-          ssh -o StrictHostKeyChecking=no -v ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "echo 'SSH connection successful'"
         shell: bash
 
       - name: Deploy to EC2
@@ -62,4 +46,3 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "cd /path/to/wordpress/wp-content/themes/palomo-theme && git pull && yarn add @roots/sage@6.21.0 @roots/bud@6.21.0 @roots/bud-tailwindcss@6.21.0 --dev swiper && yarn build"
-        shell: bash
