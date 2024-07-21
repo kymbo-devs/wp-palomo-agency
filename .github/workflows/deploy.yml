@@ -38,12 +38,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '7.4'
-          tools: composer:v2
-
       - name: Install Yarn
         run: npm install -g yarn
 
