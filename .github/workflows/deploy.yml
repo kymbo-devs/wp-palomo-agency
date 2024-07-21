@@ -58,8 +58,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            sudo rm -rf /var/www/html/wp-content/themes/palomo-theme/*
-            sudo chown -R ubuntu:ubuntu /var/www/html/wp-content/themes/
+            sudo rm -rf /var/www/html/wp_palomo/wp-content/themes/palomo-theme/*
+            sudo chown -R ubuntu:ubuntu /var/www/html/wp_palomo/wp-content/themes/
 
       - name: Deploy to AWS Server
         uses: easingthemes/ssh-deploy@main
@@ -69,7 +69,7 @@ jobs:
           REMOTE_USER: ${{ secrets.EC2_USER }}
         with:
           source: "."
-          target: "/var/www/html/wp-content/themes/palomo-theme"
+          target: "/var/www/html/wp_palomo/wp-content/themes/palomo-theme"
           rm: false
 
       - name: After Deployment
@@ -80,5 +80,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            sudo chown -R www-data:www-data /var/www/html/wp-content/themes/
+            sudo chown -R www-data:www-data /var/www/html/wp_palomo/wp-content/themes/
 
