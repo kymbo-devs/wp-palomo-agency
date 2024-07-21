@@ -28,6 +28,9 @@ jobs:
       - name: Install PHP dependencies
         run: composer install
 
+      - name: Install theme dependencies
+        run: yarn add @roots/sage@6.21.0 @roots/bud@6.21.0 @roots/bud-tailwindcss@6.21.0 --dev swiper
+
       - name: Build theme
         run: yarn build
 
@@ -38,5 +41,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-          ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "cd /path/to/wordpress/wp-content/themes/palomo-theme && git pull && npm install && npm run build"
-          
+          ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "cd /path/to/wordpress/wp-content/themes/palomo-theme && git pull && yarn install && yarn build"
