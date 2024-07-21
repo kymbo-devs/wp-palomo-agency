@@ -11,7 +11,7 @@ on:
 
 defaults:
   run:
-    working-directory: var/www/html/wp-content/themes/
+    working-directory: var/www/html/wp-content/themes/palomo-theme
 
 jobs:
   build-and-deploy:
@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install JS dependencies
-        run: yarn
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install PHP dependencies
         run: composer install
