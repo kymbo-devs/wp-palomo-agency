@@ -9,18 +9,40 @@ on:
       - main
     types: [closed]
 
+defaults:
+  run:
+    working-directory: .
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
+      
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+          
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+          
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v2
 
       - name: Install Yarn
         run: npm install -g yarn
@@ -34,16 +56,34 @@ jobs:
       - name: Build theme
         run: yarn build
 
-      - name: Start SSH agent and add key
-        run: |
-          eval "$(ssh-agent -s)"
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
-        shell: bash
+      - name: Before Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            sudo rm -rf /var/www/html/wp-content/themes/palomo-theme/*
+            sudo chown -R ubuntu:ubuntu /var/www/html/wp-content/themes/
 
-      - name: Deploy to EC2
+      - name: Deploy to AWS Server
+        uses: easingthemes/ssh-deploy@main
         env:
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-        run: |
-          sudo ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "cd /path/to/wordpress/wp-content/themes/palomo-theme && git pull && yarn add @roots/sage@6.21.0 @roots/bud@6.21.0 @roots/bud-tailwindcss@6.21.0 --dev swiper && yarn build"
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.EC2_HOST }}
+          REMOTE_USER: ${{ secrets.EC2_USER }}
+        with:
+          source: "."
+          target: "/var/www/html/wp-content/themes/palomo-theme"
+          rm: false
 
+      - name: After Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            sudo chown -R www-data:www-data /var/www/html/wp-content/themes/
