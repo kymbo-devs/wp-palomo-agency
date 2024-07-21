@@ -34,11 +34,18 @@ jobs:
       - name: Build theme
         run: yarn build
 
-      - name: Start SSH agent and add key
+      - name: Start SSH agent
         run: |
           eval "$(ssh-agent -s)"
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-          ssh-add -L  # List added keys for debugging
+        shell: bash
+
+      - name: Add SSH key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+        shell: bash
+
+      - name: List added keys
+        run: ssh-add -L
         shell: bash
 
       - name: Test SSH Connection
