@@ -9,10 +9,6 @@ on:
       - main
     types: [closed]
 
-defaults:
-  run:
-    working-directory: var/www/html/wp-content/themes/palomo-theme
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
