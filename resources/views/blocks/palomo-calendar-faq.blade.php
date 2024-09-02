@@ -2,9 +2,8 @@
 
 <div class="calendar-title">
   <h2>{{ $heading }}</h2>
-
   <div class="calendly-inline-widget" data-url="https://calendly.com/jesusapalomo/free-creative-strategy-audit" style="width:100%;height:700px;"></div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
 </div>
 
 <div class="faq-title">

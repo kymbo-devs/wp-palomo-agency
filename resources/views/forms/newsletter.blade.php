@@ -1,4 +1,4 @@
-<x-html-forms :form="$form" class="newsletter-form">
+<x-html-forms :form="$form" class="newsletter-form form-{{ $form }}">
   <input
     class="newsletter-input"
     name="emailAddress"

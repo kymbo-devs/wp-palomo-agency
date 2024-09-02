@@ -87,6 +87,7 @@ return array(
     'Davidhsianturi\\BladeBootstrapIcons\\' => array($vendorDir . '/davidhsianturi/blade-bootstrap-icons/src'),
     'Database\\Seeders\\' => array($vendorDir . '/laravel/pint/database/seeders'),
     'Database\\Factories\\' => array($vendorDir . '/laravel/pint/database/factories'),
+    'Codeat3\\BladeGoogleMaterialDesignIcons\\' => array($vendorDir . '/codeat3/blade-google-material-design-icons/src'),
     'Codeat3\\BladeElementPlusIcons\\' => array($vendorDir . '/codeat3/blade-element-plus-icons/src'),
     'Codeat3\\BladeCoolicons\\' => array($vendorDir . '/codeat3/blade-coolicons/src'),
     'Carbon\\Doctrine\\' => array($vendorDir . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine'),

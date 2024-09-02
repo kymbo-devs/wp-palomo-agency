@@ -1,6 +1,9 @@
-<header class="header_wrapper">
+<header class="header_wrapper fixed z-10 w-full">
 
-  @includeWhen($show_announcement == 1,'partials.announcement')
+  <div class="announcement_header"> 
+    @includeWhen($show_announcement == 1,'partials.announcement')
+ </div>
+
   <div class="header">
     <a class="logo" href="{{ home_url('/') }}">
       {!! wp_get_attachment_image($logo, 'header_logo', false, ['loading' => 'lazy']) !!}
@@ -15,7 +18,7 @@
       </nav>
     @endif
   
-    <a class="cta" href="{!! $CTA_link !!}">{!! $CTA !!}</a>
+    <a class="cta max-md:hidden" href="{!! $CTA_link !!}">{!! $CTA !!}</a>
   </div>
   <menu-drawer>
     <div class="drawer-menu__overlay"></div>
@@ -29,4 +32,5 @@
       </nav>
     </div>
   </menu-drawer>
+  <a class="cta md:hidden" href="{!! $CTA_link !!}">{!! $CTA !!}</a>
 </header>

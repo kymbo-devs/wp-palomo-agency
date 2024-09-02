@@ -36,8 +36,9 @@
     </div>
     
     
-    @includeWhen($show_whatsapp == 0, 'sections.wapp')
-    @includeWhen($show_popup == 0, 'sections.popup')
+    @includeWhen($show_whatsapp == 1, 'sections.wapp')
+    @includeWhen($show_popup == 1, 'sections.popup')
+    @includeWhen($show_reviews == 1, 'sections.popup-reviews')
     @include('sections.footer')
     @php(do_action('get_footer'))
     @php(wp_footer())

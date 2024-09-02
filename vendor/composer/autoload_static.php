@@ -248,6 +248,7 @@ class ComposerStaticInit84f54483f9ab8ea75c404bb70d096904
         ),
         'C' => 
         array (
+            'Codeat3\\BladeGoogleMaterialDesignIcons\\' => 39,
             'Codeat3\\BladeElementPlusIcons\\' => 30,
             'Codeat3\\BladeCoolicons\\' => 23,
             'Carbon\\Doctrine\\' => 16,
@@ -596,6 +597,10 @@ class ComposerStaticInit84f54483f9ab8ea75c404bb70d096904
         array (
             0 => __DIR__ . '/..' . '/laravel/pint/database/factories',
         ),
+        'Codeat3\\BladeGoogleMaterialDesignIcons\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codeat3/blade-google-material-design-icons/src',
+        ),
         'Codeat3\\BladeElementPlusIcons\\' => 
         array (
             0 => __DIR__ . '/..' . '/codeat3/blade-element-plus-icons/src',
@@ -643,6 +648,7 @@ class ComposerStaticInit84f54483f9ab8ea75c404bb70d096904
         'Actb\\BladeGithubOcticons\\GithubOcticonsServiceProvider' => __DIR__ . '/..' . '/actb/blade-github-octicons/src/GithubOcticonsServiceProvider.php',
         'AndreiIonita\\BladeIconoir\\BladeIconoirServiceProvider' => __DIR__ . '/..' . '/andreiio/blade-iconoir/src/BladeIconoirServiceProvider.php',
         'App\\Blocks\\PalomoCTA' => __DIR__ . '/../..' . '/app/Blocks/PalomoCTA.php',
+        'App\\Blocks\\PalomoCalendarFaq' => __DIR__ . '/../..' . '/app/Blocks/PalomoCalendarFaq.php',
         'App\\Blocks\\PalomoClients' => __DIR__ . '/../..' . '/app/Blocks/PalomoClients.php',
         'App\\Blocks\\PalomoImageText' => __DIR__ . '/../..' . '/app/Blocks/PalomoImageText.php',
         'App\\Blocks\\PalomoKSP' => __DIR__ . '/../..' . '/app/Blocks/PalomoKSP.php',
@@ -771,6 +777,7 @@ class ComposerStaticInit84f54483f9ab8ea75c404bb70d096904
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
         'Codeat3\\BladeCoolicons\\BladeCooliconsServiceProvider' => __DIR__ . '/..' . '/codeat3/blade-coolicons/src/BladeCooliconsServiceProvider.php',
         'Codeat3\\BladeElementPlusIcons\\BladeElementPlusIconsServiceProvider' => __DIR__ . '/..' . '/codeat3/blade-element-plus-icons/src/BladeElementPlusIconsServiceProvider.php',
+        'Codeat3\\BladeGoogleMaterialDesignIcons\\BladeGoogleMaterialDesignIconsServiceProvider' => __DIR__ . '/..' . '/codeat3/blade-google-material-design-icons/src/BladeGoogleMaterialDesignIconsServiceProvider.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',

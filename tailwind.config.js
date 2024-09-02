@@ -9,11 +9,12 @@ const config = {
           "100": "#875C34",
           "200": "#F3E5CF",
           "300": "#CCB591",
+          "400": "#533820",
         },
         secondary: {
           DEFAULT: "#FFFFFF",
           "100": "#FFFCF4",
-        },
+        }, 
         accent: {
           DEFAULT: "#BDF1FD",
         },

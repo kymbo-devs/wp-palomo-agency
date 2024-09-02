@@ -29,8 +29,8 @@
     </div>
     <div class="steps-buttons">
       <div class="steps-arrows">
-        <button class="steps-slick-prev disabled"><x-elemplus-arrow-left-bold /></button>
-        <button class="steps-slick-next"><x-elemplus-arrow-right-bold /></button>
+        <button class="steps-slick-prev disabled">@svg('palomo-arrow-left')</button>
+        <button class="steps-slick-next">@svg('palomo-arrow-left', 'rotate-180')</button>
       </div>
       <InnerBlocks />
     </div>

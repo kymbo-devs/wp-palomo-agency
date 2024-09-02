@@ -1,11 +1,18 @@
 {
-  "app.css": "css/app.28cb43.css",
-  "app.js": "js/app.8c01b1.js",
-  "editor.css": "css/editor.28cb43.css",
+  "app.css": "css/app.a49ac8.css",
+  "app.js": "js/app.155d6e.js",
+  "editor.css": "css/editor.a49ac8.css",
   "editor.js": "js/editor.0344c8.js",
   "runtime.js": "js/runtime.c039ed.js",
   "../theme.json": "../theme.json",
-  "images/popup-icon.svg": "images/popup-icon.2ed8b1.svg",
+  "images/icons/palomo-arrow-left.svg": "images/icons/palomo-arrow-left.eff686.svg",
+  "images/icons/palomo-arrow-right.svg": "images/icons/palomo-arrow-right.eab7e7.svg",
+  "images/icons/popup-icon.svg": "images/icons/popup-icon.2ed8b1.svg",
   "images/theme-icon.png": "images/theme-icon.da0ff5.png",
-  "entrypoints.json": "entrypoints.json"
+  "images/icons/ icon _chevron left minor_.svg": "images/icons/ icon _chevron left minor_.9d71b4.svg",
+  "images/icons/palomo-icon-left.svg": "images/icons/palomo-icon-left.dec772.svg",
+  "images/icons/chevron-left-palomo.svg": "images/icons/chevron-left-palomo.e8ec57.svg",
+  "images/icons/chevron-right-palomo.svg": "images/icons/chevron-right-palomo.eab3fc.svg",
+  "entrypoints.json": "entrypoints.json",
+  "images/icons/popup-close.svg": "images/icons/popup-close.bc291c.svg"
 }

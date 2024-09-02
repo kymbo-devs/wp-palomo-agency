@@ -8,11 +8,20 @@
 .animated-background {
     background-size: 300% 300%;
     background-image: linear-gradient(45deg, #C78C5A, #61442C, #C78C5A, #61442C);
-
     -webkit-animation: gradientAnimation 10s ease infinite;
     -moz-animation: gradientAnimation 10s ease infinite;
     animation: gradientAnimation 10s ease infinite;
-    filter: drop-shadow(4px 4px 7.3px rgba(0, 0, 0, 0.60));
+    @apply shadow-[4px_4px_7.3px_rgba(0,0,0,0.60)];
+}
+
+  @media (max-width: 400px) {
+    .custom-small-screen {
+      width: 367px;
+    }
+  }
+
+.hidden-review {
+    @apply translate-y-52 opacity-0;
 }
 
 @keyframes gradientAnimation {
@@ -38,11 +47,11 @@
     }
 
     body, div:hover{
-        cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150-1.png'), auto;
+        @apply cursor-[url('http://18.224.113.69/palomo/wp-content/uploads/2024/06/Group-1150-1.png'),_auto];
     }
 
     a, button, a:hover, button:hover, input{
-        cursor: url('http://palomo-agency.local/wp-content/uploads/2024/06/Group-1150.png'), auto !important;
+        @apply !cursor-[url('http://18.224.113.69/palomo/wp-content/uploads/2024/06/Group-1150.png'),_auto];
     }
 
     .desktop {
@@ -62,13 +71,17 @@
 @layer components {  
 
     /* HEADER STYLES */
+   
+    .announcement_header{ 
+        @apply h-[40px] max-h-[40px] ;   
+    }
 
     .announcement {
-        @apply relative bg-accent text-primary text-center py-2 font-semibold transition-all ease-in-out duration-500 overflow-hidden;
+        @apply fixed top-0 w-full m-auto bg-accent text-primary text-center py-2 font-semibold transition-all ease-in-out duration-500 overflow-hidden;
     }
 
     #announcement-close {
-        @apply absolute top-2 right-11 max-md:right-2 cursor-pointer h-[calc(100%-1rem)];
+        @apply absolute top-2 right-2 md:right-1 cursor-pointer h-[calc(100%-1rem)];
     }
     
     #announcement-close svg {
@@ -76,8 +89,8 @@
     }
 
     .header {
-        background: linear-gradient(90deg, #61442C 0%, #875C34 100%);
-        @apply grid grid-cols-header-desktop max-md:grid-cols-header-mobile justify-items-stretch items-center py-2 px-5 md:py-5 md:px-9 max-md:py-4;
+        @apply bg-[linear-gradient(90deg,#61442C_0%,#875C34_100%)];
+        @apply  m-auto grid grid-cols-header-desktop max-md:grid-cols-header-mobile justify-items-stretch items-center py-2 px-5 md:py-5 md:px-9 max-md:py-4 w-full z-50  transition-all duration-200 ease-in-out;
     }
     
     .header .logo {
@@ -92,8 +105,12 @@
         @apply justify-self-center font-normal text-header flex max-md:hidden;
     }
     
-    .header .cta {
-        @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full max-md:fixed max-md:bottom-5 max-md:w-[calc(100%-4rem)] max-md:left-8 max-md:text-center z-40;
+     .cta {
+        @apply justify-self-end uppercase text-primary text-header font-normal bg-secondary py-2 px-9 rounded-full max-md:fixed max-md:bottom-5  max-md:w-[calc(100%-4rem)] max-md:left-8 max-md:text-center z-40 max-md:shadow-[4px_4px_7.3px_rgba(0,0,0,0.60)];
+    }
+
+    .header .cta:hover {
+        @apply bg-accent scale-110 transition-all ease-in duration-300;
     }
     
     .nav-primary ul {
@@ -139,7 +156,7 @@
     /* FOOTER STYLES */
 
     footer.footer-wrapper {
-        background: linear-gradient(270deg, #64472F 0%, #937659 100%);
+        @apply bg-[linear-gradient(270deg,#64472F_0%,#937659_100%)];
         @apply text-secondary text-sm py-6 px-5 max-md:pb-16 md:py-14 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10;
     }
     
@@ -193,17 +210,25 @@
     }
     
     .newsletter-form .newsletter-input {
-        @apply w-full rounded-l-xl border-2 border-secondary text-secondary text-lg p-3;
+        @apply w-full rounded-l-xl border-2 border-secondary text-primary-400 text-lg p-3;
     }
     
     .newsletter-form .newsletter-submit {
         @apply w-fit bg-primary-300 text-secondary text-lg rounded-r-xl p-3;
     }
 
+    .popup-close path{
+        @apply fill-[#F4EADB];
+    }
+
+    .Popup-review{
+        @apply fixed m-auto left-10 bottom-[144px] max-md:left-0 max-md:top-[260px] max-md:m-auto ;
+    }
+
     /* HERO BANNER STYLES */
 
     .hero {
-        @apply grid grid-cols-2 gap-4 max-md:grid-cols-1;
+        @apply grid grid-cols-2 gap-4 max-md:grid-cols-1 min-h-screen;
     }
     
     .hero__content {
@@ -228,7 +253,7 @@
     }
     
     .hero__videos-carrusel {
-        @apply grid grid-cols-3 max-md:grid-cols-1 max-h-screen overflow-hidden max-md:order-1;
+        @apply grid grid-cols-3 max-md:grid-cols-1 max-h-screen overflow-hidden max-md:order-1 max-md:mt-[25%];
     }
     
     .hero .video-item {
@@ -236,7 +261,7 @@
     }
     
     .hero #second-banner, .hero #second-banner .video-item {
-        transform: rotate(180deg);
+        @apply rotate-180;
     }
 
     .hero .hero-buttons {
@@ -381,7 +406,7 @@
     }
 
     .steps-dots-mobile li {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        @apply shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)];
         @apply bg-primary-300 rounded-full;
     }
 
@@ -394,7 +419,7 @@
     }
 
     .custom-dot a {
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)_inset];
         @apply px-2 py-0 rounded-full bg-primary-300 transition-all ease-in-out duration-500;
     }
 
@@ -489,7 +514,7 @@
     }
 
     .ksp-section__item {
-        filter: drop-shadow(2px 2px 4px #A2998B);
+        @apply shadow-[2px_2px_4px_#A2998B];
         @apply h-fit bg-secondary rounded-lg overflow-hidden;
     }
 
@@ -553,6 +578,47 @@
     .portfolio-section .acf-innerblocks-container{
         @apply mt-10 max-md:mt-5;
     }
+/* slider video */
+
+.portfolio-section__videos.slick-slide {
+	font-size: 10px;
+	text-align: center;
+	padding: 40px 20px;
+	line-height: 2;
+	font-weight: 700;
+}
+.portfolio-section__videos .slick-slide:nth-child(even) {
+	background-color: #ddd;
+}
+.portfolio-section__videos.slick-slide:nth-child(odd) {
+	background-color: #ccc;
+}
+.slick-arrow {
+	z-index: 1;
+	width: 20px;
+	height: 20px;
+}
+
+.slick-arrow:before {
+	font-size: 90px;
+}
+
+
+
+.portfolio-section__videos button {
+
+	border: none;
+	margin: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	transition: all 0.5s;
+}
+
+button.slick-disabled {
+	opacity: 0.6;
+}
+
+/* slider video */
 
     /* IMAGE WITH TEXT SECTION STYLES */
     .img-txt {
@@ -599,12 +665,12 @@
 
 
     .img-txt__item img.size-img-txt__image {
-        filter: drop-shadow(10px 10px 0px rgba(97, 68, 44, 1));
+        @apply  shadow-[10px_10px_0px_rgba(97,68,44,1)];
         @apply  aspect-square w-4/5 h-full object-cover object-center rounded-3xl;
     }
 
     .img-txt__item.first img.size-img-txt__image {
-        filter: drop-shadow(-10px 10px 0px rgba(97, 68, 44, 1));
+        @apply shadow-[-10px_10px_0px_rgba(97,68,44,1)];
     }
 
    .img-txt__item img.attachment-img-txt__logo.size-img-txt__logo {
@@ -623,8 +689,13 @@
         @apply max-md:hidden;
     }
 
+    .prev-btn svg{
+        @apply max-md:w-[14px]
+    } 
 
-    
+     .next-btn svg{
+        @apply max-md:w-[14px]
+    } 
     /* PRICING TABLE STYLES */
 
     .wp-block-palomo-pricing.pricing-section.page-width {
@@ -760,6 +831,10 @@
 
     .btn-primary {
         @apply bg-accent text-primary shadow-primary shadow-[3px_5px];
+    }
+
+    .btn-primary:hover {
+        @apply bg-primary-300 !scale-110 transition-all ease-in duration-200;
     }
 
     .btn-primary svg {

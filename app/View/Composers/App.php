@@ -45,9 +45,13 @@ class App extends Composer
             'whatsapp_number' => get_field('whatsapp_number', 'option'),
             'whatsapp_text' => get_field('whatsapp_text', 'option'),
             'show_popup' => get_field('show_popup', 'option'),
+            'popup_form' => get_field('popup_form', 'option'),
+            'popup_image' => get_field('popup_image', 'option'),
             'popup_title' => get_field('popup_title', 'option'),
             'popup_subtitle' => get_field('popup_subtitle', 'option'),
             'popup_button' => get_field('popup_button', 'option'),
+            'show_reviews' => get_field('show_reviews', 'option'),
+            'reviews' => get_field('reviews', 'option'),
         ];
     }
 

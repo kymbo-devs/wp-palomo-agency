@@ -34,7 +34,7 @@ export default async (app) => {
    */
   app
     .setUrl('http://localhost:3000')
-    .setProxyUrl('https://54.160.19.180/wp_palomo')
+    .setProxyUrl('http://18.224.113.69/palomo/')
     .watch(['resources', 'app']);
 
   /**

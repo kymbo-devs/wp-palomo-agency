@@ -21,7 +21,8 @@
   "devDependencies": {
     "@roots/bud": "6.21.0",
     "@roots/bud-tailwindcss": "6.21.0",
-    "@roots/sage": "6.21.0"
+    "@roots/sage": "6.21.0",
+    "swiper": "^11.1.7"
   },
   "dependencies": {}
 }

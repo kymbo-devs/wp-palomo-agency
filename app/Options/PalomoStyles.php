@@ -61,7 +61,7 @@ class PalomoStyles extends Field
      *
      * @var string
      */
-    public $icon = 'http://palomo-agency.local/wp-content/uploads/2024/06/icon-2.png';
+    public $icon = 'http://18.224.113.69/wp-content/uploads/2024/06/icon-2.png';
 
     /**
      * Redirect to the first child page if one exists.
@@ -155,10 +155,21 @@ class PalomoStyles extends Field
             ->addText('whatsapp_text', ['label' => 'Predefined message'])
             ->addTab('Pop up')
             ->addTrueFalse('show_popup', ['label' => 'Active'])
+            ->addText('popup_form', ['label' => 'Form', 'instructions' => 'To add a form slug for your HTML form in *Settings -> HTML forms.*'])
+            ->addImage('popup_image', ['label' => 'Popup image', 'return_format' => 'url'])
             ->addText('popup_title', ['label' => 'Title'])
             ->addText('popup_subtitle', ['label' => 'Subtitle'])
-            ->addText('popup_button', ['label' => 'Button']);
-
+            ->addText('popup_button', ['label' => 'Button'])
+            ->addTab('Reviews')
+            ->addTrueFalse('show_reviews', ['label' => 'Active'])
+            ->addRepeater('reviews', ['label' => 'Reviews'])
+                ->addImage('review_image', ['label' => 'Image', 'return_format' => 'id'])
+                ->addText('review_title', ['label' => 'Title'])
+                ->addText('review_subtitle', ['label' => 'Subtitle'])
+                ->addText('review_time', ['label' => 'Text'])
+                ->addNumber('review_number', ['label' => 'Number of reviews'])
+            ->endRepeater();
+            
         return $palomoStyles->build();
     }
 }
